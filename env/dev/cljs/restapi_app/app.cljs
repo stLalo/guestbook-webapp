@@ -1,5 +1,5 @@
 (ns ^:figwheel-no-load restapi-app.app
-  (:require [restapi-app.core :as core]
+  (:require [restapi-app.core]
             [cljs.spec.alpha :as s]
             [expound.alpha :as expound]
             [devtools.core :as devtools]))
@@ -8,6 +8,4 @@
 
 (enable-console-print!)
 
-(devtools/install!)
 
-(core/init!)
