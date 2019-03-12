@@ -1,4 +1,4 @@
-(ns restfulapp.katz
+(ns restapi-app.katz
   (:require [reagent.core :as reagent :refer [atom]]
             [ajax.core :refer [GET POST]]
             )
@@ -37,6 +37,3 @@
         ]
         
 )
-
-
-(reagent/render [#'katz-page] (.getElementById js/document "katz"))

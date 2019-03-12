@@ -8,6 +8,8 @@
     <body>
         <input id="token" type="hidden" value="{{csrf-token}}"></input>
         <div id="app"></div>
+
+    <script>window.onload = function() { restapi_app.core.main(); }</script>
     </body>
 </html>
 {% endblock %}

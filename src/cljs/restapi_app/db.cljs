@@ -12,24 +12,10 @@
 (s/def ::comment string?)
 (s/def ::timestamp inst?)
 
-(s/def ::curr-page 
-  #{:about
-    :home
-    :katz
-    :dogz}
-)
 
 (s/def ::message (s/keys :req-un [::id ::name ::comment ::timestamp]))
 
-(s/def ::messages (s/and
-                   (s/map-of ::id ::message)))
-
-(s/def ::db (s/keys :req-un [::messages  ::curr-page]))
-
-
-
 ;;Primarly load the messages in the board
-(def default-state
-  {::message (sorted-map)
-  }
+(def default-db
+  {}
 )

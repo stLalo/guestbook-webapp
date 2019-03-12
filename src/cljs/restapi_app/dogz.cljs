@@ -1,4 +1,4 @@
-(ns restfulapp.dogz 
+(ns restapi-app.dogz 
     (:require [reagent.core :as reagent :refer [atom]]
             [ajax.core :refer [GET POST]]
 ))
@@ -21,15 +21,15 @@
         (for [dog @links]
             ^{:key dog}
             [:li 
-                [:img {src dog}]]
+                [:img {:src dog}]]
         )
     ]
 )
 
 
 
-(defn get-dogz []
-    (get-dogz)
+(defn dogz-page []
+    (get-dogz!)
     [:div.container
         [:div.row
             [:div.col

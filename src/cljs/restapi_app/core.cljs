@@ -3,30 +3,21 @@
             [restapi-app.websocket :as ws]
             [restapi-app.guestbook :as gb]
             [restapi-app.events]
-            [restapi-app.views :refer [home-page]]
-            [secretary.core :as secretary]
+            [restapi-app.db]
+            [restapi-app.views]
             [goog.events :as events]
-            [re-frame.core :as rf]
-            [ajax.core :refer [GET POST]])
+            [re-frame.core :as rf])
   (:import [goog History]
            [goog.history EventType]))
 
 
 ;;Inti the state of the application-db
-(rf/dispatch-sync [:init-app-state])
 
 
-(defn main-app []
-(fn []
-  [home-page]
-)
-)
-
-
-(defn mount-components []
-  (reagent/render-component [#'main-app] (.getElementById js/document "app")))
-
-
-(defn init! []
+(defn ^:export main
+ []
+  (rf/dispatch-sync [:initialise-db])
   (ws/make-websocket! (str "ws://" (.-host js/location) "/ws") gb/update-messages!)
-  (mount-components))
+  (rf/clear-subscription-cache!)
+  (reagent/render-component [#'restapi-app.views/home-page] (.getElementById js/document "app"))
+)
