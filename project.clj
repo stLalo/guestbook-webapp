@@ -39,6 +39,7 @@
                  [selmer "1.12.6"]
                  [clj-commons/secretary "1.2.4"]
                  [re-frame "0.10.6"]
+                 [bidi "2.1.5"]
                  ]
 
   :min-lein-version "2.0.0"

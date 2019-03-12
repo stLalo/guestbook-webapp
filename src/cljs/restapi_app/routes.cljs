@@ -1,9 +1,13 @@
 (ns restapi-app.routes
     (:require
-        [secretary.core :as secretary]
+        [bidi.bidi :as bd]
         [re-frame.core :refer [dispatch dispatch-sync]]
+        [restapi-app.guestbook :as gb]
     )
 )
-
-
-(secretary/defroute "/home" [] () (dispatch [:current-page ]))
+(def guestbook-routes ["/" [
+                            ["home.html" :home]
+                            ["dogz" :dogz]
+                            ["katz" :katz]
+                            ["about" :about]    
+                            [true :not-found]]])

@@ -1,5 +1,9 @@
 (ns restapi-app.views
-    (:require [restapi-app.guestbook :as gb]))
+    (:require [restapi-app.guestbook :as gb]
+              [secretary.core :as secretary]
+
+        [re-frame.core :refer [dispatch dispatch-sync]]
+    ))
 
 
 (defn navbar []
